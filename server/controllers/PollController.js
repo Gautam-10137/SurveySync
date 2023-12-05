@@ -10,7 +10,7 @@ const pollController={
             res.status(500).json({error: error.message});
         }
     },
-    getPolls : async(rer,res)=>{
+    getPolls : async(req,res)=>{
         try{
             const polls=await pollService.getPolls();
             res.status(200).json(polls);
