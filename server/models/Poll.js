@@ -2,7 +2,7 @@ const mongoose=require('mongoose');
 
 // Schema for questions
 const questionSchema=new mongoose.Schema({
-    text:{type:String , required:true},
+    questionText:{type:String , required:true},
     choices:[{type:String , required:true}],
 });
 

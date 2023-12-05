@@ -4,6 +4,7 @@ const bodyParser=require('body-parser')
 const cors=require('cors')
 require('dotenv').config()
 const apiRoutes=require('./routes/api')
+const pollRoutes=require('./routes/pollRoutes')
 const password=process.env.PASSWORD;
 const port=process.env.PORT;
 const app=express();
@@ -23,7 +24,7 @@ db.once('open',()=>{
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 app.use(cors());
-
+app.use('/poll',pollRoutes);
 app.use('/api',apiRoutes);
 app.listen(port,()=>{
     console.log(`Server is listening on port ${port}`);
