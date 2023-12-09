@@ -1,9 +1,14 @@
 const mongoose=require('mongoose');
 
+// Schema for choices
+const choiceSchema=new mongoose.Schema({
+    choiceText:{type:String,required:true},
+    votes:{type:Number,default:0}
+})
 // Schema for questions
 const questionSchema=new mongoose.Schema({
     questionText:{type:String , required:true},
-    choices:[{type:String , required:true}],
+    choices:[choiceSchema],
 });
 
 // Schema for poll

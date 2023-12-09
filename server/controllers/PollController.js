@@ -36,7 +36,7 @@ const pollController={
             if(!updatedPoll){
                 return res.status(404).json({message:'Poll Not Found'});
             }
-            res.statu(200).json(updatedPoll);
+            res.status(200).json(updatedPoll);
         }
         catch(error){
             res.status(500).json({error:error.message});
@@ -44,9 +44,9 @@ const pollController={
     },
     deletePoll: async(req,res)=>{
         try{
-            const {pollId}=req.params.id;
+            const {pollId}=req.params;
             const deletedPoll=await pollService.deletePoll(pollId);
-            if(!deletePoll){
+            if(!deletedPoll){
                 return res.status(404).json({message:'Poll Not Found!'});
             }
             res.status(200).json(deletedPoll);
@@ -54,7 +54,26 @@ const pollController={
         catch(error){
             res.status(500).json({error:error.message});
         }
+    },
+    submitVote: async(req,res)=>{
+        try{
+            const {pollId}=req.params;
+            const {selectedChoices}=req.body;
+              
+            const result= await pollService.submitVote(selectedChoices,pollId);
+            if(result.sucess){
+                res.status(200).json({message:result.message});
+            }
+            else{
+                res.status(404).json({message:result.message});
+            }
+           
+        }
+        catch(error){
+            res.status(500).json({error:error.message});
+        }
     }
+
 }
 
 module.exports=pollController;

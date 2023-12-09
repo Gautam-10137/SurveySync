@@ -46,6 +46,7 @@ const PollForm = ({onSubmit}) => {
         });
     };
     const handleSubmit=()=>{
+      
       onSubmit(Poll);
     }
 

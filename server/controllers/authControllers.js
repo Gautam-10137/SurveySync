@@ -32,7 +32,7 @@ exports.login=(req,res)=>{
         if(isMatch){
             const payload={id:user.id,username:username};
             const token= jwt.sign(payload,config.secret,{expiresIn:'1h'});
-            res.json({success:true,token:'Bearer'+token});
+            res.json({success:true,token:'Bearer '+token});
         }
         else{
             return res.status(400).json({message:'Password Incorrect'});
