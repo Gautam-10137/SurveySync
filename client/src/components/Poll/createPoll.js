@@ -24,7 +24,7 @@ const createPoll = () => {
           creator: userId,
         };
       console.log(pollWithCreator);
-        const response= await fetch('http://localhost:7000/poll/create',{
+        const response= await fetch('http://localhost:7000/polls/create',{
             method:'POST',
             headers:{
               'Content-Type':'application/json',
@@ -32,12 +32,13 @@ const createPoll = () => {
             },
             body:JSON.stringify(pollWithCreator)
         })
-        // if(response.ok){
-        //     // success
-        // }
-        // else{
-        //     // error
-        // }
+        if(response.ok){
+            // success
+            console.log("success");
+        }
+        else{
+            // error
+        }
       }
       catch(error){
         console.error(error);

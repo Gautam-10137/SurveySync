@@ -4,6 +4,7 @@ const pollController={
     createPoll: async(req,res)=>{
         try{
             const newPoll=await pollService.createPoll(req.body);
+            
             res.status(201).json(newPoll);
         }
         catch (error){
@@ -21,7 +22,9 @@ const pollController={
     },
     getPollDetails: async (req,res)=>{
         try{
-            const pollDetails=await pollService.getPollDetails(req.params.id);
+            const id=req.params.pollId;
+            
+            const pollDetails=await pollService.getPollDetails(id);
             res.status(200).json(pollDetails);
         }
         catch(error){
@@ -30,7 +33,7 @@ const pollController={
     },
     updatePoll : async (req,res)=>{
         try{
-            const {pollId}=req.params;
+            const pollId=req.params.pollId;
             const {questions}=req.body;
             const updatedPoll=await pollService.updateDetails(pollId,questions);
             if(!updatedPoll){
@@ -44,7 +47,7 @@ const pollController={
     },
     deletePoll: async(req,res)=>{
         try{
-            const {pollId}=req.params;
+            const pollId=req.params.pollId;
             const deletedPoll=await pollService.deletePoll(pollId);
             if(!deletedPoll){
                 return res.status(404).json({message:'Poll Not Found!'});
@@ -57,11 +60,13 @@ const pollController={
     },
     submitVote: async(req,res)=>{
         try{
-            const {pollId}=req.params;
+            const pollId=req.params.pollId;
+          
             const {selectedChoices}=req.body;
-              
+            
             const result= await pollService.submitVote(selectedChoices,pollId);
-            if(result.sucess){
+            
+            if(result.success){
                 res.status(200).json({message:result.message});
             }
             else{
@@ -70,6 +75,7 @@ const pollController={
            
         }
         catch(error){
+           
             res.status(500).json({error:error.message});
         }
     }

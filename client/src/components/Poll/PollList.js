@@ -5,7 +5,7 @@ const PollList = () => {
     useEffect(()=>{
         const fetchPolls= async()=>{
             try{
-              const response= await fetch('http://localhost:7000/poll/all');
+              const response= await fetch('http://localhost:7000/polls/all');
               if(response.ok){
                 const data= await response.json();
                 console.log(data);
@@ -40,7 +40,7 @@ const PollList = () => {
                             <p>{question.questionText}</p>
                             <ul>
                                 {question.choices.map((choice,choiceIndex)=>(
-                                    <li key={choiceIndex}> {choice}</li>
+                                    <li key={choiceIndex}> {choice.choiceText}</li>
                                 ))}
                             </ul>
 

@@ -21,21 +21,15 @@ function authenticateToken(req, res, next) {
       next();
     });
   }
-router.post('/create',async(req,res)=>{
-  pollController.createPoll
-});
+router.post('/create',pollController.createPoll);
 // authenticateToken,
-router.get('/all',authenticateToken,async(req,res)=>{
- await pollController.getPolls
-});
-router.get('/:pollId',authenticateToken,async(req,res)=>{
-  pollController.getPollDetails
-});
-router.delete('/:pollId',authenticateToken,async(req,res)=>{
-  pollController.deletePoll
-});
-router.post('/:pollId/vote',authenticateToken,async(req,res)=>{
-  pollController.submitVote(req,res)
-});
+router.get('/all',pollController.getPolls);
+// ,authenticateToken
+router.get('/:pollId',pollController.getPollDetails);
+// ,authenticateToken
+router.delete('/:pollId',pollController.deletePoll);
+// authenticateToken,
+router.post('/:pollId/vote',pollController.submitVote);
+// authenticateToken,
 
 module.exports=router;

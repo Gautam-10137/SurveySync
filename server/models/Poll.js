@@ -13,6 +13,8 @@ const questionSchema=new mongoose.Schema({
 
 // Schema for poll
 const pollSchema=new mongoose.Schema({
+    title:{type:String,required:true},
+    description:{type:String},
     questions:[questionSchema],
     creator:{type:mongoose.Schema.Types.ObjectId, ref:'User', required:true },
     createdAt:{type:Date , default:Date.now()}

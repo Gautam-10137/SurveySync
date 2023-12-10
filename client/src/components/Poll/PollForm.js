@@ -2,13 +2,17 @@ import React,{useState} from 'react'
 
 const PollForm = ({onSubmit}) => {
     const [Poll,setPoll]=useState({
-        questions:[ {
+        title:'',
+        description:'',
+        questions:[ 
+          {
             questionText:'',
             choices:['']
-                }]
-            });
+          }
+                 ]
+        });
     const handleAddQuestion=()=>{
-      console.log("Add QUESTION")
+      
       setPoll({
         ...Poll,
         questions:[
@@ -52,6 +56,18 @@ const PollForm = ({onSubmit}) => {
 
   return (
     <div>
+      <label>Title:</label>
+      <input
+        type='text'
+        value={Poll.title}
+        onChange={(e)=>{setPoll({...Poll,title:e.target.value})}}
+      ></input>
+      <label>Description:</label>
+      <input
+        type='text'
+        value={Poll.description}
+        onChange={(e)=>{setPoll({...Poll,description:e.target.value})}}
+      ></input>
        {
         Poll.questions.map((question,questionIndex)=>(
                <div key={questionIndex}>
