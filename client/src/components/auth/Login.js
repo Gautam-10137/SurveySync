@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-
-const Login = () => {
- 
+import {useNavigate} from 'react-router-dom';
+const Login = ({setIsLoggedIn}) => {
+   const navigate=useNavigate();
   const [formData, setFormData] = useState({
     username: '',
+    
     password: '',
   });
 
@@ -35,7 +36,8 @@ const Login = () => {
       localStorage.setItem('token', token);
       console.log('token');
       console.log(localStorage.getItem('token'));
-    
+      setIsLoggedIn(true);
+      navigate('/');
   };
 
   return (
@@ -57,6 +59,7 @@ const Login = () => {
           type="password"
           id="password"
           name="password"
+          autoComplete="current-password"
           value={formData.password}
           onChange={handleInputChange}
           required

@@ -1,6 +1,7 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {Link} from 'react-router-dom';
-const Home = () => {
+const Home = ({isLoggedIn}) => {
+  
   return (
     <div>
       <h2>Welcome to Polling App.</h2>
@@ -11,10 +12,12 @@ const Home = () => {
       <div>
         <Link to="/dashboard">Go to Dashboard.</Link>
       </div>
+      {/* {isLoggedIn? */}
       <div>
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link>
       </div>
+      {/* :<h4>Logged In!</h4>} */}
     </div>
   );
 };

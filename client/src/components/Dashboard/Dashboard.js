@@ -9,7 +9,10 @@ const Dashboard = () => {
             <Link to="/create-poll"> Create a New Poll</Link>
         </li>
         <li>
-            <Link to="/polls">View Available Forms</Link>
+            <Link to="/polls">View Available Polls</Link>
+        </li>
+        <li>
+          <Link to="/polls/results">Results</Link>
         </li>
       </ul>
     </div>

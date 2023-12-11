@@ -1,5 +1,5 @@
 const Poll=require('../models/Poll')
-
+const User=require('../models/User')
 const pollService={
     createPoll: async(pollData)=>{
         const { title,description,questions, creator } = pollData;
@@ -12,7 +12,10 @@ const pollService={
         })),
             creator
         });
-        await newPoll.save();
+        newPoll.save();
+        console.log(newPoll);
+        await User.findByIdAndUpdate(creator,{$push:{createdPolls:newPoll._id}});
+      
         return newPoll;
     },
     getPolls: async()=>{
