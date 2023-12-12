@@ -1,15 +1,23 @@
 import React,{useState,useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import VoteComponent from './VoteComponent';
+import { jwtDecode } from 'jwt-decode';
 const PollDetails = () => {
     const {pollId}=useParams();
     const [poll,setPoll]=useState(null);
     const [selectedChoices,setSelectedChoices]=useState({});
-
+    
     useEffect(()=>{
           const fetchPollDetails=async()=>{
             try{
-                 const response=await fetch(`http://127.0.0.1:7000/polls/${pollId}`);
+                 const token=localStorage.getItem('token');
+                 const response=await fetch(`http://127.0.0.1:7000/polls/${pollId}`,{
+                  method:'GET',
+                  headers:{
+                    'Content-Type':'application/json',
+                    'Authorization':`${token}`
+                  }
+                 });
                 
                  const data= await response.json();
                
@@ -21,6 +29,18 @@ const PollDetails = () => {
           }
           fetchPollDetails();
     },[pollId]);
+
+    const getUserIdFromToken = (token) => {
+      try {
+        // Decode the token payload
+        const decoded = jwtDecode(token);
+        // Extract and return the userId
+        return decoded.id;
+      } catch (error) {
+        console.error('Error decoding token:', error);
+        return null;
+      }
+    };
     const handleVote=(questionId,selectedChoice)=>{
             setSelectedChoices({
               ...selectedChoices,
@@ -29,13 +49,17 @@ const PollDetails = () => {
     };
     const handleVoteSubmission=async ()=>{
           try{
+             const token=localStorage.getItem('token');
+             const userId=getUserIdFromToken(token);
+             console.log('userId',userId);
               const response=await fetch(`http://127.0.0.1:7000/polls/${pollId}/vote`,{
                 method:'POST',
                 headers:{
                   'Content-Type':'application/json',
+                  'Authorization':`${token}`
                 },
                 body: JSON.stringify({
-                  selectedChoices
+                  selectedChoices,userId
                 })
               });
               if(response.ok){

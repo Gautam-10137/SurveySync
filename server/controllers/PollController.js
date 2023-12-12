@@ -62,9 +62,9 @@ const pollController={
         try{
             const pollId=req.params.pollId;
           
-            const {selectedChoices}=req.body;
+            const {selectedChoices,userId}=req.body;
             
-            const result= await pollService.submitVote(selectedChoices,pollId);
+            const result= await pollService.submitVote(selectedChoices,pollId,userId);
             
             if(result.success){
                 res.status(200).json({message:result.message});
@@ -76,6 +76,17 @@ const pollController={
         }
         catch(error){
            
+            res.status(500).json({error:error.message});
+        }
+    },
+    getProfile: async(req,res)=>{
+        try{
+            console.log(req.params);
+            const userId=req.params.userId;
+            const result=await pollService.getProfile(userId);
+            res.status(200).json(result);
+        }
+        catch(error){
             res.status(500).json({error:error.message});
         }
     }

@@ -2,10 +2,19 @@ import React, { useEffect ,useState} from 'react'
 
 const PollList = () => {
     const [polls,setPolls]=useState([]);
+    
     useEffect(()=>{
         const fetchPolls= async()=>{
             try{
-              const response= await fetch('http://localhost:7000/polls/all');
+              const token=localStorage.getItem('token');
+              const response= await fetch('http://localhost:7000/polls/all',{
+                method:'GET',
+                headers:{
+                  'Content-type':'application/json',
+                  'Authorization':`${token}`
+                }
+
+              });
               if(response.ok){
                 const data= await response.json();
                 console.log(data);

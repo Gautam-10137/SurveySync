@@ -5,7 +5,14 @@ const Result = () => {
   useEffect(()=>{
      const fetchPolls=async ()=>{
         try{
-        const response=await fetch('http://127.0.0.1:7000/polls/all');
+        const token=localStorage.getItem('token');
+        const response=await fetch('http://127.0.0.1:7000/polls/all',{
+          method:'GET',
+          headers:{
+            'Content-Type':'application/json',
+            'Authorization':`${token}`
+          }
+        });
         const data=await response.json();
         
         setPolls(data);

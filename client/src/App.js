@@ -10,6 +10,7 @@ import AvailablePolls from './components/Dashboard/AvailablePolls'
 import PollList from './components/Poll/PollList'
 import PollResult from './components/Result/PollResult'
 import Result from './components/Result/Result'
+import Profile from './components/profile/Profile'
 const App = () => {
   const [isLoggedIn,setIsLoggedIn]=useState(false);
   return (
@@ -19,16 +20,15 @@ const App = () => {
         <Routes>
           <Route path="/" exact  element={<Home isLoggedIn={isLoggedIn}/>}/>
           <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn}/>}/>
-          <Route path="/polls/:pollId" exact element={<PollDetails/>}/>
-          
+          <Route path="/polls/:pollId" exact element={<PollDetails/>}/>      
           <Route path="/register" element={<Register/>}/>
           <Route path="/create-poll" element={<CreatePoll/>}/>
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/polls" element={<AvailablePolls/>}/>
           <Route path="/polls/results" element={<Result/>}/>
           <Route path="/polls/:pollId/results" exact element={<PollResult/>}></Route>
+          <Route path="/polls/:userId/profile" exact element={<Profile/>}></Route>
         </Routes>
-      
       </BrowserRouter>
       
 

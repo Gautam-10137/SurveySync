@@ -4,7 +4,7 @@ const Login = ({setIsLoggedIn}) => {
    const navigate=useNavigate();
   const [formData, setFormData] = useState({
     username: '',
-    
+    email:'',
     password: '',
   });
 
@@ -20,13 +20,19 @@ const Login = ({setIsLoggedIn}) => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     const username=formData.username;
+    const email=formData.email;
+    // const emailRegex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // if(!emailRegex.test(email)){
+    //       alert("Invalid Email");
+    //       return;
+    // }
     const password=formData.password;
     const response = await fetch('http://localhost:7000/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ username,email, password }),
       });
     
       const data = await response.json();
@@ -52,6 +58,17 @@ const Login = ({setIsLoggedIn}) => {
           onChange={handleInputChange}
           required
         />
+      </div>
+      <div>
+        <label>Email:</label>
+        <input
+        type="email"
+        id="email"
+        name="email"
+        value={formData.email}
+        onChange={handleInputChange}
+        >
+        </input>
       </div>
       <div>
         <label htmlFor="password">Password:</label>

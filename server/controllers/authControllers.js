@@ -5,8 +5,8 @@ const jwt=require('jsonwebtoken');
 
 // Register a new user
 exports.register=(req,res)=>{
-    const {username,password}=req.body;
-    const newUser=new User({username,password});
+    const {username,email,password}=req.body;
+    const newUser=new User({username,email,password});
     
     // Hashing Password before saving it to database
     bycrypt.genSalt(10,(err,salt)=>{
@@ -23,7 +23,7 @@ exports.register=(req,res)=>{
 
 // Login
 exports.login=(req,res)=>{
-  const {username,password}=req.body;
+  const {username,email,password}=req.body;
 
   User.findOne({username}).then(user=>{
     if(!user) return res.status(400).json({message:'User Not Found'});

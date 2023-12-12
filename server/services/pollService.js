@@ -62,7 +62,7 @@ const pollService={
         }
          return true;
     },
-    submitVote:async(selectedChoices,pollId)=>{
+    submitVote:async(selectedChoices,pollId,userId)=>{
                 try{
                     const poll=  await Poll.findById(pollId);
                     
@@ -77,7 +77,7 @@ const pollService={
                         return {success:false,message:'Invalid vote Structure!'};
                     }
                     
-                   
+                   console.log("submitting vote");
                      poll.questions.forEach((question,questionIndex)=>{
                        
                         const selectedChoiceIndex= selectedChoices[question._id];
@@ -88,16 +88,21 @@ const pollService={
                     )
                     
                     await poll.save();
-              
+                    console.log("Vote saved");
+                    
+                    await User.findByIdAndUpdate(userId,{$push:{participatedPolls:pollId}});
                     return { success: true, message: 'Vote Submitted Successfully' };
                 }
                 catch(error){
                     
                     return { success: false, message: error.message };
                 }
+    },
+    getProfile: async(userId)=>{   
+                console.log(userId);     
+                const userDetail=await User.findById(userId).populate('createdPolls').populate('participatedPolls');            
+                return userDetail;        
     }
-
-
 
 }
 module.exports=pollService;
