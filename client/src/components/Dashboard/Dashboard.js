@@ -22,7 +22,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <h2>Poll Forms:</h2>
+      <h2>Dashboard:</h2>
       <ul>
         <li>
             <Link to="/create-poll"> Create a New Poll</Link>
