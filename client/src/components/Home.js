@@ -1,7 +1,11 @@
-import React,{useState} from 'react';
+import React,{useEffect} from 'react';
 import {Link} from 'react-router-dom';
+import Logout from './auth/Logout';
 const Home = ({isLoggedIn}) => {
-  
+  useEffect(()=>{
+    const returnUrl = window.location.pathname; 
+    localStorage.setItem('returnUrl', returnUrl);
+  },[]);
   return (
     <div>
       <h2>Welcome to Polling App.</h2>
@@ -16,7 +20,9 @@ const Home = ({isLoggedIn}) => {
       <div>
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link>
+        <Logout/>
       </div>
+
       {/* :<h4>Logged In!</h4>} */}
     </div>
   );

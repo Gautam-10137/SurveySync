@@ -40,3 +40,17 @@ exports.login=(req,res)=>{
     });
   });
 };
+
+exports.logout=(req,res)=>{
+    const authHeader = req.header('Authorization');
+
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return res.sendStatus(401);
+    }    
+  
+    jwt.verify(token, config.secret, (err, user) => {
+      if (err) return res.sendStatus(403);  
+    });
+    res.status(200).json({message:'Logout Successful'});
+
+}
