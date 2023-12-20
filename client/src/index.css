@@ -1,13 +1,149 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  max-width: 95%;
+  height: 10000px;
+  /* auto means it will leave equal space from left and right */
+  margin: 0 auto;
+  float: none;
+  font-family: Arial, Helvetica, sans-serif;
+  
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  background-color: white;
+  position: fixed;  /* to fix the position of navbar*/
+  top: 0; 
+  z-index: 1000;  
+  width: 95%;
+  font-weight: bold;
+  border-bottom: 1px solid rgb(236, 232, 232);
+  height: 60px;
+  
+}
+ul{
+  display: flex;
+  justify-content: space-between;
+}
+.nav-links{
+  width: 45%;
+}
+.profile-section{
+  width: 14%; 
+ display: flex;
+ align-items: center;
+
+ justify-content: space-between;
+
+}
+li{
+  list-style: none;  
+}
+.main-content{
+  margin-top: 53px;
+  /* background-color: rgb(238, 226, 226); */
+  background-color: transparent;
+
+}
+.first-container{
+  display: flex;
+  justify-content: space-between;
+}
+.content{
+  width: 40%;
+  margin-left: 5%;
+  margin-top: 4%;
+
+}
+.content-image{
+  width: 50%;
+}
+.content-image>img{
+  width: 90%;
+  margin-top: 5%;
+
+}
+.button{
+  height: 2.5rem;
+  width: 8rem;
+  background-color: blue;
+  border: 2px solid white;
+  border-radius: 0.3rem;
+  margin-top: 1.3rem;
+ 
+ 
+}
+#create-poll{
+  color: white;
+  font-size: medium;
+  font-weight: bold;
+}
+.signup{
+  height: 2.3rem;
+  width: 6rem;
+  background-color: blue;
+  border: 2px solid white;
+  border-radius: 0.3rem;
+ 
+}
+#sign{
+  color: white;
+  font-size: medium;
+  font-weight: bold;
+}
+#login{
+
+  align-items: center;
+}
+/* css of registration page */
+.form-container{
+  width: 300px;
+  margin-left: 35%;
+  margin-top: 5%;
+  background-color: aqua;
+  padding-left:20px ;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+#auth-logo
+{
+  background-color: yellow;
+  height: 40px;
+  width: fit-content;
+  margin-left: 42%;
+  margin-top: 10%;
+  
+}
+#icon{
+  font-size: 30px;
+
+}
+#username, #password, #email{
+  margin-bottom: 15px;
+  margin-top: 5px;
+  width: 260px;
+  height: 30px;
+  border: 2px solid grey;
+  border-radius: 0.3rem;
+}
+#register{
+  margin-top: 5px;
+  height: 35px;
+  width: 270px;
+  background-color: blue;
+  border: 2px solid blue;
+  border-radius: 0.3rem;
+  color: white;
+  font-size: large;
+  font-weight: bold;
+}
+#para{
+  margin-left: 35%;
+  color: rgb(70, 68, 68);  
 }

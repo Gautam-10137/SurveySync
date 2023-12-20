@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, Link} from 'react-router-dom';
+
+const linkStyle={
+  textDecoration: 'none',
+  color:'#4a4949'
+}
+
 const Login = ({setIsLoggedIn}) => {
    const navigate=useNavigate();
   const [formData, setFormData] = useState({
@@ -46,6 +52,9 @@ const Login = ({setIsLoggedIn}) => {
   };
 
   return (
+    <>
+    <div id='auth-logo'><Link to='/' style={linkStyle}><span id='icon'>SurveySync</span></Link></div>    
+    <div className='form-container'>
     <form onSubmit={handleFormSubmit}>
       <div>
         <label htmlFor="username">Username:</label>
@@ -81,8 +90,10 @@ const Login = ({setIsLoggedIn}) => {
           required
         />
       </div>
-      <button type="submit">Login</button>
+      <button type="submit" id='register'>Login</button>
     </form>
+    </div>
+    </>
   );
 };
 

@@ -1,5 +1,9 @@
 import React,{useState} from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+const linkStyle={
+  textDecoration: 'none',
+  color:'#4a4949'
+}
 const Register = () => {
   const navigate=useNavigate();
   const [formData, setFormData] = useState({
@@ -36,9 +40,12 @@ const Register = () => {
       navigate('/');
   };
   return (
+   <>   <div id='auth-logo'><Link to='/' style={linkStyle}><span id='icon'>SurveySync</span></Link></div>    
+      <div className='form-container'>    
     <form onSubmit={handleFormSubmit}>
     <div>
       <label htmlFor="username">Username:</label>
+      <br></br>
       <input
         type="text"
         id="username"
@@ -50,6 +57,7 @@ const Register = () => {
     </div>
     <div>
       <label>Email:</label>
+      <br></br>
       <input
       type="email"
       id="email"
@@ -61,6 +69,7 @@ const Register = () => {
     </div>
     <div>
       <label htmlFor="password">Password:</label>
+      <br></br>
       <input
         type="password"
         id="password"
@@ -71,8 +80,12 @@ const Register = () => {
         required
       />
     </div>
-    <button type="submit">Register</button>
+    <button type="submit" id='register'>Register</button>
   </form>
+  </div>
+  <h6 id='para'>Sign up
+By signing up you accept our terms of use and policies.</h6>
+  </>
   )
 }
 
