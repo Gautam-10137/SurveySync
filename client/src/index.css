@@ -1,6 +1,6 @@
 body {
   max-width: 95%;
-  height: 10000px;
+  height: 1000px;
   /* auto means it will leave equal space from left and right */
   margin: 0 auto;
   float: none;
@@ -146,4 +146,74 @@ li{
 #para{
   margin-left: 35%;
   color: rgb(70, 68, 68);  
+}
+
+/* css of crete polls */
+.form-title{
+  background-color: rgb(245, 239, 239);
+  width: 80%;
+  height: 160px;
+  margin-left: 130px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border-top: 10px solid rgb(140, 75, 237);
+  border-left: 8px solid rgb(75, 188, 237);
+  border-bottom: 2px solid rgb(231, 234, 235);
+  border-radius: 0.5rem;
+  display: grid;
+}
+#title, #description{
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+#label1{
+  margin-top: 1%;
+}
+#label1, #label2, #label3{
+  margin-left: 1%;
+  
+}
+#category{
+  margin-left: 2%;
+}
+.question{  
+  background-color: rgb(245, 239, 239);
+  width: 80%;
+  height: auto;
+  margin-left: 130px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border: 2px solid rgb(220, 222, 223); 
+  border-radius: 0.5rem;
+}
+#que, #option, #add-option{
+  display: grid;
+  margin-bottom: 1%;
+  margin-left: 2%;
+}
+#que{
+  margin-top: 1%;
+}
+#add-option{
+  margin-bottom: 2%;
+  margin-left: 2%;
+}
+#id1, #id2{
+  margin-left: 2%;
+  margin-bottom: 1%;
+  width: 800px;
+  height: 20px;
+}
+.add, .submit{
+  background-color: rgb(245, 239, 239);
+  width: 80%;
+  height: 50px;
+  margin-left: 130px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border: 2px solid rgb(220, 222, 223); 
+  border-radius: 0.5rem;
+
 }

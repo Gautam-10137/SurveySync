@@ -1,4 +1,9 @@
 import React,{useState} from 'react'
+import { Link } from 'react-router-dom'
+const linkStyle={
+  textDecoration: 'none',
+  color:'#4a4949'
+}
 
 const PollForm = ({onSubmit}) => {
   // Example of predefined categories
@@ -61,16 +66,49 @@ const predefinedCategories = ['Technology','Science','Entertainment','Sports','P
   
 
   return (
+    <>
+       <header>
+            <nav className='header'>
+                <div className='logo'>
+                    {/* inline css */}
+                    <Link to='/' style={linkStyle}>SurveySync</Link>
+                </div>
+                <div className='nav-links'>
+                    <ul>
+                        <li>
+                            <Link to='/create-poll' style={linkStyle}>Questions</Link>
+                        </li>
+                        <li>
+                            <Link to='/create poll' style={linkStyle}>Responses</Link>
+                        </li>
+                        
+                    </ul>                    
+                </div>
+                <div className='profile-section'>
+                    <div id='login'>
+                        <Link to='/login' style={linkStyle}>Move to folder</Link>
+                    </div>
+                        <button className='signup'>
+                            <Link to='/register' style={linkStyle}><span id='sign'>Send</span></Link>
+                        </button>
+                        
+                    
+                </div>
+            </nav>
+        </header>
+
+
     <div>
-      <label>Title:</label>
-      <input
+      <div className='form-title'>
+      <label id='label1'>Untitled form:</label>
+      <input id='title'
         type='text'
         value={Poll.title}
         onChange={(e)=>{setPoll({...Poll,title:e.target.value})}}
       ></input>
-          <label>
+          <label id='label2'>
         Category:
-        <select value={Poll.category} onChange={(e) => {setPoll({...Poll,category:e.target.value})}}>
+        <select id='category' value={Poll.category} onChange={(e) => {setPoll({...Poll,category:e.target.value})}}>
           <option value="" disabled>Select a category</option>
           {predefinedCategories.map((category) => (
             <option key={category} value={category}>
@@ -79,25 +117,28 @@ const predefinedCategories = ['Technology','Science','Entertainment','Sports','P
           ))}
         </select>
       </label>
-      <label>Description:</label>
-      <input
+      <label id='label3'>Form description:</label>
+      <input id='description'
         type='text'
         value={Poll.description}
-        onChange={(e)=>{setPoll({...Poll,description:e.target.value})}}
-      ></input>
+        onChange={(e)=>{setPoll({...Poll,description:e.target.value})}}>
+      </input>
+    </div>
+    <div className='question'>
        {
         Poll.questions.map((question,questionIndex)=>(
                <div key={questionIndex}>
-                <label>Question {questionIndex+1}:</label>
-                <input
+
+                <label id='que'>Question {questionIndex+1}:</label>
+                <input id='id1'
                   type='text'
-                  value={question.questionText}
-                  
+                  value={question.questionText}                  
                   onChange={(e)=>handleQuestionInput(questionIndex,e.target.value)}
                 ></input>
-                <label>Choices:</label>
+
+                <label id='option'>Choices:</label>
                 {question.choices.map((choice,choiceIndex)=>(
-                    <input
+                    <input id='id2'
                     key={choiceIndex}
                      type='text'
                      value={choice}
@@ -105,14 +146,21 @@ const predefinedCategories = ['Technology','Science','Entertainment','Sports','P
                     >
                     </input>
                 ))}
-                <button onClick={(e)=>handleAddChoice(questionIndex)}>Add Choice</button>
+                <button id='add-option' onClick={(e)=>handleAddChoice(questionIndex)}>Add option</button>
                </div>
+              
         ))
+        
        }
-       <button onClick={handleAddQuestion}>Add Question</button>
-       <button onClick={handleSubmit}>Submit</button>
-      
+       </div>
+       <div className='add'>
+       <button id='add' onClick={handleAddQuestion}>Add Question</button>
+       </div>
+       <div className='submit'>
+       <button id='submit' onClick={handleSubmit}>Submit</button>
+       </div>
     </div>
+    </>
   )
 }
 
