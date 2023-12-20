@@ -32,4 +32,6 @@ router.delete('/:pollId',authenticateToken,pollController.deletePoll);
 router.post('/:pollId/vote',authenticateToken,pollController.submitVote);
 
 router.get('/:userId/profile',authenticateToken,pollController.getProfile);
+
+router.get('/category/:categoryId',authenticateToken,pollController.getCategoryPolls);
 module.exports=router;

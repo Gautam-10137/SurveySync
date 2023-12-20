@@ -1,6 +1,10 @@
 import React,{useState} from 'react'
 
 const PollForm = ({onSubmit}) => {
+  // Example of predefined categories
+const predefinedCategories = ['Technology','Science','Entertainment','Sports','Politics','Food','Travel','Health','Education','Business'
+,'Fashion','Art','Music','Movies','Books','Fitness','Gaming','Home & Garden','Pets','Hobbies', 'Finance'];
+
     const [Poll,setPoll]=useState({
         title:'',
         description:'',
@@ -9,7 +13,8 @@ const PollForm = ({onSubmit}) => {
             questionText:'',
             choices:['']
           }
-                 ]
+                 ],
+        category:''
         });
     const handleAddQuestion=()=>{
       
@@ -50,9 +55,10 @@ const PollForm = ({onSubmit}) => {
         });
     };
     const handleSubmit=()=>{
-      
+      console.log(Poll);
       onSubmit(Poll);
     }
+  
 
   return (
     <div>
@@ -62,6 +68,17 @@ const PollForm = ({onSubmit}) => {
         value={Poll.title}
         onChange={(e)=>{setPoll({...Poll,title:e.target.value})}}
       ></input>
+          <label>
+        Category:
+        <select value={Poll.category} onChange={(e) => {setPoll({...Poll,category:e.target.value})}}>
+          <option value="" disabled>Select a category</option>
+          {predefinedCategories.map((category) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
+        </select>
+      </label>
       <label>Description:</label>
       <input
         type='text'

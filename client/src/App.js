@@ -11,6 +11,8 @@ import PollList from './components/Poll/PollList'
 import PollResult from './components/Result/PollResult'
 import Result from './components/Result/Result'
 import Profile from './components/profile/Profile'
+import Category from './components/Dashboard/Category'
+import PerCategory from './components/Dashboard/PerCategory'
 const App = () => {
   const [isLoggedIn,setIsLoggedIn]=useState(false);
   return (
@@ -28,6 +30,8 @@ const App = () => {
           <Route path="/polls/results" element={<Result/>}/>
           <Route path="/polls/:pollId/results" exact element={<PollResult/>}></Route>
           <Route path="/polls/:userId/profile" exact element={<Profile/>}></Route>
+          <Route path="/polls/category" exact element={<Category/>}></Route>
+          <Route path="/polls/category/:categoryId" exact element={<PerCategory/>}></Route>
         </Routes>
       </BrowserRouter>
       

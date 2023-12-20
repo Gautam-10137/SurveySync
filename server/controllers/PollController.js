@@ -81,9 +81,19 @@ const pollController={
     },
     getProfile: async(req,res)=>{
         try{
-            console.log(req.params);
+          
             const userId=req.params.userId;
             const result=await pollService.getProfile(userId);
+            res.status(200).json(result);
+        }
+        catch(error){
+            res.status(500).json({error:error.message});
+        }
+    },
+    getCategoryPolls: async(req,res)=>{
+        try{
+            const categoryId=req.params.categoryId;
+            const result=await pollService.getCategoryPolls(categoryId);
             res.status(200).json(result);
         }
         catch(error){
