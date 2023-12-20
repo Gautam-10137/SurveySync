@@ -1,6 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import { jwtDecode } from 'jwt-decode';
+import Category from './Category';
+
 const Dashboard = () => {
   const token=localStorage.getItem('token');
   const [userId,setUserId]=useState('');
@@ -28,7 +30,7 @@ const Dashboard = () => {
             <Link to="/create-poll"> Create a New Poll</Link>
         </li>
         <li>
-            <Link to="/polls">View Available Polls</Link>
+            <Link to="/polls">Public Polls</Link>
         </li>
         <li>
           <Link to="/polls/results">Results</Link>
@@ -36,7 +38,11 @@ const Dashboard = () => {
         <li>
           <Link to={`/polls/${userId}/profile`}>My Profile</Link>
         </li>
+        <li>
+          <Link to={"/polls/category"}> Category</Link>
+        </li>
       </ul>
+      
     </div>
   )
 }

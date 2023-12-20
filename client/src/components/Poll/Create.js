@@ -1,9 +1,17 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import PollForm from './PollForm'
 import {jwtDecode} from 'jwt-decode';
-const createPoll = () => {
-    
+import {useNavigate} from 'react-router-dom';
+const Create = ({isLoggedIn}) => {
+    const navigate=useNavigate();
     const token=localStorage.getItem('token');
+    useEffect(()=>{
+        if(!isLoggedIn){
+            const returnUrl = window.location.pathname; 
+            localStorage.setItem('returnUrl', returnUrl);
+            navigate('/login');
+          }
+    },[])
     const getUserIdFromToken = (token) => {
       try {
         // Decode the token payload
@@ -44,7 +52,7 @@ const createPoll = () => {
         console.error(error);
       }
     }
-
+  
   return (
     <div>
         <h1>Create a Poll : </h1>
@@ -54,4 +62,4 @@ const createPoll = () => {
   )
 }
 
-export default createPoll
+export default Create

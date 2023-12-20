@@ -1,14 +1,19 @@
-import React,{useState} from 'react';
+import React,{useEffect} from 'react';
 import {Link} from 'react-router-dom';
+
 import Header from './header/Header';
 import Footer from './footer/footer';
-
+import Logout from './auth/Logout';
 const linkStyle={
   textDecoration: 'none',
   color:'#4a4949'
 }
+
 const Home = ({isLoggedIn}) => {
-  
+  useEffect(()=>{
+    const returnUrl = window.location.pathname; 
+    localStorage.setItem('returnUrl', returnUrl);
+  },[]);
   return (
     <div>
       <Header/>
@@ -33,7 +38,9 @@ const Home = ({isLoggedIn}) => {
       <div>
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link>
+        <Logout/>
       </div>
+
       {/* :<h4>Logged In!</h4>} */}
       </div>
       <Footer/>

@@ -1,6 +1,5 @@
 import React,{useState} from 'react'
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
-import CreatePoll from './components/Poll/createPoll'
 import Home from './components/Home'
 import Dashboard from './components/Dashboard/Dashboard'
 import Register from './components/auth/Register'
@@ -11,6 +10,9 @@ import PollList from './components/Poll/PollList'
 import PollResult from './components/Result/PollResult'
 import Result from './components/Result/Result'
 import Profile from './components/profile/Profile'
+import Category from './components/Dashboard/Category'
+import PerCategory from './components/Dashboard/PerCategory'
+import Create from './components/Poll/Create'
 const App = () => {
   const [isLoggedIn,setIsLoggedIn]=useState(false);
   return (
@@ -22,12 +24,14 @@ const App = () => {
           <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn}/>}/>
           <Route path="/polls/:pollId" exact element={<PollDetails/>}/>      
           <Route path="/register" element={<Register/>}/>
-          <Route path="/create-poll" element={<CreatePoll/>}/>
-          <Route path="/dashboard" element={<Dashboard/>}/>
+          <Route path="/create-poll" element={<Create isLoggedIn={isLoggedIn}/>}/>
+          <Route path="/dashboard" element={<Dashboard />}/>
           <Route path="/polls" element={<AvailablePolls/>}/>
-          <Route path="/polls/results" element={<Result/>}/>
+          <Route path="/polls/results" element={<Result isLoggedIn={isLoggedIn}/>}/>
           <Route path="/polls/:pollId/results" exact element={<PollResult/>}></Route>
-          <Route path="/polls/:userId/profile" exact element={<Profile/>}></Route>
+          <Route path="/polls/:userId/profile" exact element={<Profile isLoggedIn={isLoggedIn}/>}></Route>
+          <Route path="/polls/category" exact element={<Category/>}></Route>
+          <Route path="/polls/category/:categoryId" exact element={<PerCategory/>}></Route>
         </Routes>
       </BrowserRouter>
       

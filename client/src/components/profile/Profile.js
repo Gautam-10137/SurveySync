@@ -1,9 +1,15 @@
 import React,{useState,useEffect} from 'react'
-import {  useParams } from 'react-router-dom'
-const Profile = () => {
+import {  useParams,useNavigate } from 'react-router-dom'
+const Profile = ({isLoggedIn}) => {
     const [userDetail,setUserDetail]=useState({});
     const {userId}=useParams();
+    const navigate=useNavigate();
     useEffect(()=>{
+      if(!isLoggedIn){
+        const returnUrl = window.location.pathname; 
+        localStorage.setItem('returnUrl', returnUrl);
+        navigate('/login');
+      }
         const fetchUserDetails=async()=>{
             try{
                 const token=localStorage.getItem('token');

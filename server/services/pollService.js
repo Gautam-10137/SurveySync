@@ -2,7 +2,7 @@ const Poll=require('../models/Poll')
 const User=require('../models/User')
 const pollService={
     createPoll: async(pollData)=>{
-        const { title,description,questions, creator } = pollData;
+        const { title,description,questions,category, creator } = pollData;
         const newPoll=new Poll({
             title:title,
             description:description,
@@ -10,7 +10,8 @@ const pollService={
               questionText:question.questionText,
            choices:question.choices.map((choiceText)=>({choiceText,votes:0})),
         })),
-            creator
+        category,
+        creator
         });
         newPoll.save();
         console.log(newPoll);
@@ -102,6 +103,11 @@ const pollService={
                 console.log(userId);     
                 const userDetail=await User.findById(userId).populate('createdPolls').populate('participatedPolls');            
                 return userDetail;        
+    },
+    getCategoryPolls: async(categoryId)=>{
+             const categoryPolls= await Poll.find({ category: categoryId }).populate('creator','username');
+             console.log(categoryPolls);
+             return categoryPolls;
     }
 
 }
