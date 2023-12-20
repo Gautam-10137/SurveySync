@@ -30,14 +30,14 @@ const Header = () => {
                     </ul>                    
                 </div>
                 <div className='profile-section'>
-                    <ul>
-                        <li>
-                            <Link to='/login' style={linkStyle}>Login</Link>
-                        </li>
-                        <li>
-                            <Link to='/register' style={linkStyle}>Sign up</Link>
-                        </li>
-                    </ul>
+                    <div id='login'>
+                        <Link to='/login' style={linkStyle}>Login</Link>
+                    </div>
+                        <button className='signup'>
+                            <Link to='/register' style={linkStyle}><span id='sign'>Sign up</span></Link>
+                        </button>
+                        
+                    
                 </div>
             </nav>
         </header>

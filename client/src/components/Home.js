@@ -2,7 +2,11 @@ import React,{useState} from 'react';
 import {Link} from 'react-router-dom';
 import Header from './header/Header';
 import Footer from './footer/footer';
-import Image1 from '../assets/content-image.jpg';
+
+const linkStyle={
+  textDecoration: 'none',
+  color:'#4a4949'
+}
 const Home = ({isLoggedIn}) => {
   
   return (
@@ -13,8 +17,8 @@ const Home = ({isLoggedIn}) => {
           <div className='content'>
           <h2>Empower Your Opinions with Our Interactive Online Polling Platform</h2>
       <p>Explore diverse topics, share your perspective, and see how your opinions align with others in our engaging online polls.</p>
-      <button>
-        <Link to="/create-poll">Create your own Poll</Link>
+      <button className='button'>
+        <Link to="/create-poll" style={linkStyle}><span id='create-poll'>Create Poll</span></Link>
       </button>
           </div>
           <div className='content-image'>

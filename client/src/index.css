@@ -24,7 +24,7 @@ code {
   width: 95%;
   font-weight: bold;
   border-bottom: 1px solid rgb(236, 232, 232);
-  
+  height: 60px;
   
 }
 ul{
@@ -35,7 +35,12 @@ ul{
   width: 45%;
 }
 .profile-section{
-  width: 15%; 
+  width: 14%; 
+ display: flex;
+ align-items: center;
+
+ justify-content: space-between;
+
 }
 li{
   list-style: none;  
@@ -63,4 +68,82 @@ li{
   width: 90%;
   margin-top: 5%;
 
+}
+.button{
+  height: 2.5rem;
+  width: 8rem;
+  background-color: blue;
+  border: 2px solid white;
+  border-radius: 0.3rem;
+  margin-top: 1.3rem;
+ 
+ 
+}
+#create-poll{
+  color: white;
+  font-size: medium;
+  font-weight: bold;
+}
+.signup{
+  height: 2.3rem;
+  width: 6rem;
+  background-color: blue;
+  border: 2px solid white;
+  border-radius: 0.3rem;
+ 
+}
+#sign{
+  color: white;
+  font-size: medium;
+  font-weight: bold;
+}
+#login{
+
+  align-items: center;
+}
+/* css of registration page */
+.form-container{
+  width: 300px;
+  margin-left: 35%;
+  margin-top: 5%;
+  background-color: aqua;
+  padding-left:20px ;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+#auth-logo
+{
+  background-color: yellow;
+  height: 40px;
+  width: fit-content;
+  margin-left: 42%;
+  margin-top: 10%;
+  
+}
+#icon{
+  font-size: 30px;
+
+}
+#username, #password, #email{
+  margin-bottom: 15px;
+  margin-top: 5px;
+  width: 260px;
+  height: 30px;
+  border: 2px solid grey;
+  border-radius: 0.3rem;
+}
+#register{
+  margin-top: 5px;
+  height: 35px;
+  width: 270px;
+  background-color: blue;
+  border: 2px solid blue;
+  border-radius: 0.3rem;
+  color: white;
+  font-size: large;
+  font-weight: bold;
+}
+#para{
+  margin-left: 35%;
+  color: rgb(70, 68, 68);  
 }
