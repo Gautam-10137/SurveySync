@@ -106,7 +106,8 @@ const pollService={
     },
     getCategoryPolls: async(categoryId)=>{
              const categoryPolls= await Poll.find({ category: categoryId }).populate('creator','username');
-             console.log(categoryPolls);
+            
+         
              return categoryPolls;
     }
 
