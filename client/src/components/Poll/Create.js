@@ -5,13 +5,13 @@ import {useNavigate} from 'react-router-dom';
 const Create = ({isLoggedIn}) => {
     const navigate=useNavigate();
     const token=localStorage.getItem('token');
-    // useEffect(()=>{
-    //     if(!isLoggedIn){
-    //         const returnUrl = window.location.pathname; 
-    //         localStorage.setItem('returnUrl', returnUrl);
-    //         navigate('/login');
-    //       }
-    // },[])
+    useEffect(()=>{
+        if(!isLoggedIn){
+            const returnUrl = window.location.pathname; 
+            localStorage.setItem('returnUrl', returnUrl);
+            navigate('/login');
+          }
+    },[])
     const getUserIdFromToken = (token) => {
       try {
         // Decode the token payload
