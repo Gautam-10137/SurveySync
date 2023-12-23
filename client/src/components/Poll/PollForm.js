@@ -85,30 +85,27 @@ const predefinedCategories = ['Technology','Science','Entertainment','Sports','P
                     </ul>                    
                 </div>
                 <div className='profile-section'>
-                    <div id='login'>
-                        <Link to='/login' style={linkStyle}>Move to folder</Link>
-                    </div>
-                        <button className='signup'>
-                            <Link to='/register' style={linkStyle}><span id='sign'>Send</span></Link>
-                        </button>
-                        
-                    
+                  Move to folder
+                        <button className='signup save'  onClick={handleSubmit} >
+                           <span id='sign'>Save</span>
+                        </button>    
                 </div>
             </nav>
         </header>
 
 
-    <div>
+    <div className='form'>
       <div className='form-title'>
-      <label id='label1'>Untitled form:</label>
+      <label id='label1'>Form Title:</label>
       <input id='title'
         type='text'
         value={Poll.title}
         onChange={(e)=>{setPoll({...Poll,title:e.target.value})}}
+        required
       ></input>
           <label id='label2'>
         Category:
-        <select id='category' value={Poll.category} onChange={(e) => {setPoll({...Poll,category:e.target.value})}}>
+        <select id='category' value={Poll.category} onChange={(e) => {setPoll({...Poll,category:e.target.value})}} required>
           <option value="" disabled>Select a category</option>
           {predefinedCategories.map((category) => (
             <option key={category} value={category}>
@@ -118,46 +115,51 @@ const predefinedCategories = ['Technology','Science','Entertainment','Sports','P
         </select>
       </label>
       <label id='label3'>Form description:</label>
-      <input id='description'
+      <textarea rows="4" cols="10" id='description'
         type='text'
         value={Poll.description}
-        onChange={(e)=>{setPoll({...Poll,description:e.target.value})}}>
-      </input>
+        onChange={(e)=>{setPoll({...Poll,description:e.target.value})}} 
+        required
+        >
+      </textarea>
     </div>
-    <div className='question'>
+    
        {
         Poll.questions.map((question,questionIndex)=>(
-               <div key={questionIndex}>
+          
+               <div  className='question' key={questionIndex}>
 
                 <label id='que'>Question {questionIndex+1}:</label>
                 <input id='id1'
                   type='text'
                   value={question.questionText}                  
                   onChange={(e)=>handleQuestionInput(questionIndex,e.target.value)}
+                  required
                 ></input>
 
                 <label id='option'>Choices:</label>
                 {question.choices.map((choice,choiceIndex)=>(
-                    <input id='id2'
+                  <div key={choiceIndex}>
+                    <input type='radio'></input>
+                    <input id='id2' 
                     key={choiceIndex}
                      type='text'
                      value={choice}
                      onChange={(e)=>{handleChoiceInput(questionIndex,choiceIndex,e.target.value)}}
+                     required
                     >
-                    </input>
+                    </input></div>
                 ))}
-                <button id='add-option' onClick={(e)=>handleAddChoice(questionIndex)}>Add option</button>
+                <button id='add-option' onClick={(e)=>handleAddChoice(questionIndex)}>+ Add option</button>
                </div>
-              
+           
         ))
         
        }
-       </div>
-       <div className='add'>
-       <button id='add' onClick={handleAddQuestion}>Add Question</button>
-       </div>
-       <div className='submit'>
-       <button id='submit' onClick={handleSubmit}>Submit</button>
+       
+       <div className='add-question'>
+       <button id='add' onClick={handleAddQuestion}> + Add Question</button>
+       
        </div>
     </div>
     </>
