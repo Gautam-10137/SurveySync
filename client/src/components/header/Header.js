@@ -14,7 +14,7 @@ const Header = () => {
                     <Link to='/' style={linkStyle}>SurveySync</Link>
                 </div>
                 <div className='nav-links'>
-                    <ul>
+                    <ul id="header-ul">
                         <li>
                             <Link to='/' style={linkStyle}>Overview</Link>
                         </li>

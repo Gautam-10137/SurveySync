@@ -1,8 +1,15 @@
 import React,{useState,useEffect} from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams,Link } from 'react-router-dom';
+import PollResultChart from './PollResultChart';
+const linkStyle={
+  textDecoration: 'none',
+  color:'#4a4949',
+ 
+}
 const PollResult = () => {
   const {pollId}=useParams();
   const [poll,setPoll]=useState(null);
+  const [labels,setLabels]=useState(null);
 
   useEffect(()=>{
     const fetchPollDetail=async()=>{
@@ -31,24 +38,31 @@ const PollResult = () => {
 
   return (
     <div>
-        <h2>{poll.title} Results</h2>
-        <p>{poll.description}</p>
-        <ul>
+        <h1 id="result-logo"><Link to='/'style={linkStyle}>SurveySync</Link></h1>
+      
+       <div id="result-section"> <p><strong id='result-id'>Title:</strong> {poll.title} </p>
+        <p><strong id='result-id'>Description:</strong> {poll.description}</p>
+        </div>
+                  <ul className='chart-ul'>
             {
-                poll.questions.map((question)=>(
-                    <li key={question._id}>
-                       <strong> {question.questionText}</strong>        
-                    <ul>
+                poll.questions.map((question,index)=>(
+                    <li id="chart-li"key={question._id}>
+                       <strong> {index+1}. {question.questionText}</strong>        
+                    {/* <ul>
                         {question.choices.map((choice,index)=>(
                          <li key={index}>
                             {choice.choiceText}:{choice.votes} votes
                          </li>
                         ))}
-                    </ul>
+                    </ul> */}
+                    
+                    <PollResultChart data={question.choices}/>
                     </li>
+                    
                 ))
             }
         </ul>
+     
       
     </div>
   )

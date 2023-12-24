@@ -4,11 +4,11 @@ const Result = ({isLoggedIn}) => {
   const [polls,setPolls]=useState([]);
   const navigate=useNavigate();
   useEffect(()=>{
-    if(!isLoggedIn){
-      const returnUrl = window.location.pathname; 
-      localStorage.setItem('returnUrl', returnUrl);
-      navigate('/login');
-    }
+    // if(!isLoggedIn){
+    //   const returnUrl = window.location.pathname; 
+    //   localStorage.setItem('returnUrl', returnUrl);
+    //   navigate('/login');
+    // }
      const fetchPolls=async ()=>{
         try{
         const token=localStorage.getItem('token');
