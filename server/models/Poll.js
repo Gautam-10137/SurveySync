@@ -18,7 +18,8 @@ const pollSchema=new mongoose.Schema({
     questions:[questionSchema],
     category:{type:String,required:true},
     creator:{type:mongoose.Schema.Types.ObjectId, ref:'User', required:true },
-    createdAt:{type:Date , default:Date.now()}
+    createdAt:{type:Date , default:Date.now()},
+    participants:[{type:mongoose.Schema.Types.ObjectId,ref:'User', required:true}]
 })
 
 module.exports=mongoose.model('Poll',pollSchema);
