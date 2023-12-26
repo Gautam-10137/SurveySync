@@ -1,12 +1,10 @@
 import React from 'react'
-import { Routes,Route,Navigate } from 'react-router-dom'
+import { Route,Navigate } from 'react-router-dom'
+import Create from '../Poll/Create';
 const PrivateRoute = ({element,isLoggedIn,...props}) => {
      
-  return ( isLoggedIn?<Routes>
-    <Route {...props} element={element}>        
-  </Route>
-  </Routes>:<Navigate to="/login" replace></Navigate>
-    
+  return ( isLoggedIn?element:<Navigate to="/login" replace></Navigate>
+
   )
 }
 
