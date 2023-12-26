@@ -1,5 +1,6 @@
 const Poll=require('../models/Poll')
 const User=require('../models/User')
+const Response=require('../models/Response')
 const pollService={
     createPoll: async(pollData)=>{
         const { title,description,questions,category, creator } = pollData;
@@ -87,7 +88,7 @@ const pollService={
                         poll.questions[questionIndex].choices[selectedChoiceIndex].votes+=1;
                     }
                     )
-                    
+                    poll.participants.push(userId);
                     await poll.save();
                     console.log("Vote saved");
                     

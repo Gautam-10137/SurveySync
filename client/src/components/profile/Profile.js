@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import {  useParams,useNavigate } from 'react-router-dom'
+import {  useParams,useNavigate ,Link} from 'react-router-dom'
 const Profile = ({isLoggedIn}) => {
     const [userDetail,setUserDetail]=useState({});
     const {userId}=useParams();
@@ -38,7 +38,7 @@ const Profile = ({isLoggedIn}) => {
       
       {Array.isArray(userDetail.createdPolls) && userDetail.createdPolls.length > 0 ? <ul>
       {userDetail.createdPolls.map((poll)=>(
-             <li key={poll._id}>{poll.title}</li>
+             <Link to={`/polls/${poll._id}`} key={poll._id}>{poll.title}</Link>
       ))}
       </ul>:(
         <p>No Polls created</p>

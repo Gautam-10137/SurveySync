@@ -5,31 +5,8 @@ import { jwtDecode } from 'jwt-decode';
 const PollDetails = () => {
     const {pollId}=useParams();
     const [poll,setPoll]=useState(null);
+    const [isParticipated,setIsParticipated]=useState(false);
     const [selectedChoices,setSelectedChoices]=useState({});
-    
-    useEffect(()=>{
-          const fetchPollDetails=async()=>{
-            try{
-                 const token=localStorage.getItem('token');
-                 const response=await fetch(`http://127.0.0.1:7000/polls/${pollId}`,{
-                  method:'GET',
-                  headers:{
-                    'Content-Type':'application/json',
-                    'Authorization':`${token}`
-                  }
-                 });
-                
-                 const data= await response.json();
-               
-                 setPoll(data);
-            }
-            catch(error){
-                console.error('Error fetching poll details: ',error);
-            }
-          }
-          fetchPollDetails();
-    },[pollId]);
-
     const getUserIdFromToken = (token) => {
       try {
         // Decode the token payload
@@ -40,7 +17,35 @@ const PollDetails = () => {
         console.error('Error decoding token:', error);
         return null;
       }
-    };
+    };    
+    useEffect(()=>{
+          const fetchPollDetails=async()=>{
+            try{
+                 const token=localStorage.getItem('token');
+                 const userId=getUserIdFromToken(token);
+                 const response=await fetch(`http://127.0.0.1:7000/polls/${pollId}`,{
+                  method:'GET',
+                  headers:{
+                    'Content-Type':'application/json',
+                    'Authorization':`${token}`
+                  }
+                 });
+                
+                 const data= await response.json();
+                 if(data.participants.includes(userId)){
+                  setIsParticipated(true);
+                 }
+                
+                 setPoll(data);
+            }
+            catch(error){
+                console.error('Error fetching poll details: ',error);
+            }
+          }
+          fetchPollDetails();
+    },[pollId]);
+
+
     const handleVote=(questionId,selectedChoice)=>{
             setSelectedChoices({
               ...selectedChoices,
@@ -70,11 +75,14 @@ const PollDetails = () => {
             console.error(`Error Submitting Vote : ${error}`);
           }
     }
+    
   return (
     <div>
+      {
+      isParticipated?<h2>You have already participated in this poll. Below are your previous responses:</h2>:<>
       <h2>{poll?poll.title:"Loading..."}</h2>
       {
-        poll&& (
+        poll && (
             <div>
             <p>{poll.description}</p>
             <ul>
@@ -102,6 +110,8 @@ const PollDetails = () => {
             <button onClick={handleVoteSubmission}>Submit Votes</button>
             </div>
         )
+      }
+      </>
       }
     </div>
   );

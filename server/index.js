@@ -9,8 +9,7 @@ const password=process.env.PASSWORD;
 const port=process.env.PORT;
 const app=express();
 
-const userID = process.env.USERID;
-mongoose.connect(`mongodb+srv://${userID}:${password}@cluster0.vmvwcul.mongodb.net/?retryWrites=true&w=majority`,{
+mongoose.connect(`mongodb+srv://pahwagautam47:${password}@cluster0.vmvwcul.mongodb.net/?retryWrites=true&w=majority`,{
     useNewUrlParser:true,
     useUnifiedTopology:true
 });

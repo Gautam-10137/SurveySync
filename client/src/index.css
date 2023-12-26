@@ -27,7 +27,7 @@ code {
   height: 60px;
   
 }
-ul{
+#header-ul{
   display: flex;
   justify-content: space-between;
 }
@@ -264,3 +264,42 @@ height: 30px;
 font-size: 17px;
 }
 
+.chart-container{
+  width: 400px;
+  height: 300px;
+
+ margin: auto;
+}
+
+.chart-ul{
+  /* display: flex;
+  justify-content: space-between;
+  margin-left: 2%;
+  margin-right: 7%; */
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  text-align: center;
+  grid-column-gap: 10px;
+}
+#chart-li{
+ border-top: 1px solid rgb(218, 217, 217);
+ border-right:1px solid rgb(227, 225, 225) ;
+ border-bottom: 1px solid rgb(218, 215, 215);
+ border-left:1px solid rgb(223, 222, 222) ;
+ text-align: center;
+ border-radius: 0.8rem;
+ padding-top: 5px;
+
+ box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+ color: #646363;
+}
+
+#result-logo{
+  text-align: center;
+  
+}
+
+#result-id{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 15px;
+}
