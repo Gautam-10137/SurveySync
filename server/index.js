@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 app.use(cors({
     origin: 'http://localhost:3000',  
-    methods: ['GET', 'POST'],
+    methods: ['GET', 'POST','DELETE'],
   }));
 app.use('/polls',pollRoutes);
 app.use('/api',apiRoutes);

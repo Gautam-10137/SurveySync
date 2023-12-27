@@ -87,7 +87,7 @@ li{
 .signup{
   height: 2.3rem;
   width: 6rem;
-  background-color: blue;
+  background-color: rgb(64, 64, 209);
   border: 2px solid white;
   border-radius: 0.3rem;
  
@@ -315,4 +315,8 @@ font-size: 17px;
 #question-label{
   display: flex;
   justify-content:space-between;
+}
+
+.delete-poll{
+  width: 120px;
 }

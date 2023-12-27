@@ -37,6 +37,7 @@ const Create = () => {
         if(response.ok){
             // success
             console.log("success");
+            navigate(-1);
         }
         else{
             // error

@@ -23,7 +23,7 @@ const App = () => {
       
       <BrowserRouter>
         <Routes>
-          <Route path="/" exact  element={<Home isLoggedIn={isLoggedIn}/>}/>
+          <Route path="/" exact  element={<Home isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}/>
           <Route path="/login" exact element={<Login setIsLoggedIn={setIsLoggedIn}/>}/>
           <Route path="/polls/:pollId" exact element={<PollDetails/>}/>      
           <Route path="/register" exact element={<Register/>}/>

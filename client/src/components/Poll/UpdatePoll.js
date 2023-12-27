@@ -1,5 +1,5 @@
 import React ,{useState,useEffect}from 'react'
-import { useParams ,Link} from 'react-router-dom';
+import { useParams ,Link,useNavigate} from 'react-router-dom';
 const linkStyle={
     textDecoration: 'none',
     color:'#4a4949'
@@ -8,6 +8,7 @@ const UpdatePoll = () => {
     const predefinedCategories = ['Technology','Science','Entertainment','Sports','Politics','Food','Travel','Health','Education','Business'
     ,'Fashion','Art','Music','Movies','Books','Fitness','Gaming','Home & Garden','Pets','Hobbies', 'Finance'];
         const {pollId}=useParams();
+        const navigate=useNavigate();
         const [Poll,setPoll]=useState({
           title:' ',
         description:' ',
@@ -130,6 +131,24 @@ const UpdatePoll = () => {
           }
         }
       
+        const handleDelete=async()=>{
+             try{
+                 const response= await fetch(`http://127.0.0.1:7000/polls/${pollId}`,{
+                  method:'DELETE',
+                  headers:{
+                    'Content-type':'application/json',
+                    'Authorization':`${token}`
+                  }
+                 })
+                 if(response.ok){
+                    console.log("Poll Deleted Successfully");
+                    navigate('/');
+                 }
+             }
+             catch(error){
+              console.error("Error Deleting Poll: "+error);
+             }
+        }
       
       return (
         <>
@@ -151,7 +170,9 @@ const UpdatePoll = () => {
                         </ul>                    
                     </div>
                     <div className='profile-section'>
-                      Move to folder
+                        <button className='signup save delete-poll' onClick={handleDelete}>
+                          <span id='sign'>Delete Poll</span>
+                          </button>
                             <button className='signup save'  onClick={handleSubmit} >
                                <span id='sign'>Save</span>
                             </button>    
@@ -223,10 +244,8 @@ const UpdatePoll = () => {
                     <button className='add-option' onClick={(e)=>handleAddChoice(questionIndex)}>+ Add option</button>
                     <button className ="add-option" onClick={(e)=>handleRemoveChoice(questionIndex)}>- Remove option</button>
                     </div>
-                   </div>
-               
+                   </div>      
             ))
-            
            }
            
            <div className='add-question'>

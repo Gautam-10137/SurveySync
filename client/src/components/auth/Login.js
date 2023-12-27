@@ -47,8 +47,8 @@ const Login = ({setIsLoggedIn}) => {
       // Store the token securely (e.g., in a cookie or local storage)
       localStorage.setItem('token', token);
       setIsLoggedIn(true);
-      const returnUrl=localStorage.getItem('returnUrl');
-      navigate(returnUrl);
+      // const returnUrl=localStorage.getItem('returnUrl');
+      navigate(-1);
   };
 
   return (
