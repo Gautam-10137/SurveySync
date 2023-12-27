@@ -1,15 +1,11 @@
 import React,{useState,useEffect} from 'react'
 import {  useParams,useNavigate ,Link} from 'react-router-dom'
-const Profile = ({isLoggedIn}) => {
+const Profile = () => {
     const [userDetail,setUserDetail]=useState({});
     const {userId}=useParams();
-    const navigate=useNavigate();
+
     useEffect(()=>{
-      if(!isLoggedIn){
-        const returnUrl = window.location.pathname; 
-        localStorage.setItem('returnUrl', returnUrl);
-        navigate('/login');
-      }
+
         const fetchUserDetails=async()=>{
             try{
                 const token=localStorage.getItem('token');
@@ -38,7 +34,7 @@ const Profile = ({isLoggedIn}) => {
       
       {Array.isArray(userDetail.createdPolls) && userDetail.createdPolls.length > 0 ? <ul>
       {userDetail.createdPolls.map((poll)=>(
-             <Link to={`/polls/${poll._id}`} key={poll._id}>{poll.title}</Link>
+             <li key={poll._id}><Link to={`/polls/update/${poll._id}`} key={poll._id}>{poll.title}</Link></li>
       ))}
       </ul>:(
         <p>No Polls created</p>

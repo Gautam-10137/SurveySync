@@ -152,6 +152,7 @@ li{
 .form{
 margin: auto;
 /* width: fit-content; */
+margin-top: 5%;
 max-width: 50%;
 }
 .form-title{
@@ -228,10 +229,14 @@ max-width: 50%;
   margin-top: 1%;
 
 }
-#add-option{
+.add-option{
   margin-bottom: 2%;
   margin-left: 2%;
-  margin-top: 2%;
+  margin-right: 1%;
+  margin-top: 1%;
+  border: 1px solid grey;
+  border-radius: 0.2rem;
+  box-shadow: #b9babb;
 }
 #id1, #id2{
  margin-left: 1%;
@@ -302,4 +307,12 @@ font-size: 17px;
 #result-id{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 15px;
+}
+
+#choice-button{
+  display: flex;
+}
+#question-label{
+  display: flex;
+  justify-content:space-between;
 }
