@@ -135,7 +135,7 @@ li{
 #register{
   margin-top: 5px;
   height: 35px;
-  width: 270px;
+  width: 90%;
   background-color: blue;
   border: 2px solid blue;
   border-radius: 0.3rem;
@@ -319,4 +319,30 @@ font-size: 17px;
 
 .delete-poll{
   width: 120px;
+}
+.new-login{
+
+  height: 45px;
+  width: 30%;
+  margin-top: - 10%;
+  background-color: blue;
+  border: 2px solid blue;
+  border-radius: 0.3rem;
+  color: white;
+  font-size: large;
+  font-weight: bold;
+}
+#new-login{
+  
+  position: relative;
+  top: 15%;
+}
+.new-to-login{
+  font-size: 20px;
+
+  height: 50px;
+  margin-left: 36%;
+  margin-top: 1%;
+  width: max-content;
+
 }

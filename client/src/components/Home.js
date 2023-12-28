@@ -16,7 +16,7 @@ const Home = ({isLoggedIn,setIsLoggedIn}) => {
   },[]);
   return (
     <div>
-      <Header/>
+      <Header isLoggedIn={isLoggedIn}/>
       <div className='main-content'>
         <div className='first-container'>
           <div className='content'>
@@ -34,14 +34,13 @@ const Home = ({isLoggedIn,setIsLoggedIn}) => {
       <div>
         <Link to="/dashboard">Go to Dashboard.</Link>
       </div>
-      {/* {isLoggedIn? */}
+      {!isLoggedIn?
       <div>
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link>
         <Logout setIsLoggedIn={setIsLoggedIn}/>
       </div>
-
-      {/* :<h4>Logged In!</h4>} */}
+       :<h4>Logged In!</h4>} 
       </div>
       <Footer/>
     </div>
