@@ -9,14 +9,14 @@ const linkStyle={
   color:'#4a4949'
 }
 
-const Home = ({isLoggedIn}) => {
+const Home = ({isLoggedIn,setIsLoggedIn}) => {
   useEffect(()=>{
     const returnUrl = window.location.pathname; 
     localStorage.setItem('returnUrl', returnUrl);
   },[]);
   return (
     <div>
-      <Header/>
+      <Header isLoggedIn={isLoggedIn}/>
       <div className='main-content'>
         <div className='first-container'>
           <div className='content'>
@@ -34,14 +34,13 @@ const Home = ({isLoggedIn}) => {
       <div>
         <Link to="/dashboard">Go to Dashboard.</Link>
       </div>
-      {/* {isLoggedIn? */}
+      {!isLoggedIn?
       <div>
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link>
-        <Logout/>
+        <Logout setIsLoggedIn={setIsLoggedIn}/>
       </div>
-
-      {/* :<h4>Logged In!</h4>} */}
+       :<h4>Logged In!</h4>} 
       </div>
       <Footer/>
     </div>

@@ -47,7 +47,7 @@ exports.logout=(req,res)=>{
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
       return res.sendStatus(401);
     }    
-  
+    const token = authHeader.split(' ')[1];
     jwt.verify(token, config.secret, (err, user) => {
       if (err) return res.sendStatus(403);  
     });

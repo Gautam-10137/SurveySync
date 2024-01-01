@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Logout = () => {
+const Logout = ({setIsLoggedIn}) => {
     const handleLogout=async ()=>{
        const token=localStorage.getItem('token');
        try{ const response= await fetch('http://127.0.0.1:7000/api/logout',{
@@ -12,6 +12,7 @@ const Logout = () => {
         })
         if(response.ok){
             localStorage.removeItem('token');
+            setIsLoggedIn(false);
         }
         console.log('Logout Successful');
        }

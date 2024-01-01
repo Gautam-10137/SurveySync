@@ -14,6 +14,7 @@ import Category from './components/Dashboard/Category'
 import PerCategory from './components/Dashboard/PerCategory'
 import Create from './components/Poll/Create'
 import PrivateRoute from './components/auth/PrivateRoute'
+import UpdatePoll from './components/Poll/UpdatePoll'
 
 const App = () => {
   const [isLoggedIn,setIsLoggedIn]=useState(false);
@@ -22,11 +23,11 @@ const App = () => {
       
       <BrowserRouter>
         <Routes>
-          <Route path="/" exact  element={<Home isLoggedIn={isLoggedIn}/>}/>
+          <Route path="/" exact  element={<Home isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}/>
           <Route path="/login" exact element={<Login setIsLoggedIn={setIsLoggedIn}/>}/>
           <Route path="/polls/:pollId" exact element={<PollDetails/>}/>      
           <Route path="/register" exact element={<Register/>}/>
-          <Route path="/create-poll/*" exact element={<PrivateRoute isLoggedIn={isLoggedIn} element={<Create/>}/>}/>
+          <Route path="/create-poll" exact element={<PrivateRoute isLoggedIn={isLoggedIn} element={<Create/>}/>}/>
           <Route path="/dashboard" exact element={<Dashboard />}/>
           <Route path="/polls" exact element={<AvailablePolls/>}/>
           <Route path="/polls/results" exact  element={<PrivateRoute isLoggedIn={isLoggedIn} element={<Result/>}/>}/>
@@ -34,6 +35,7 @@ const App = () => {
           <Route path="/polls/:userId/profile" exact element={<PrivateRoute isLoggedIn={isLoggedIn} element={<Profile/>}/>}></Route>
           <Route path="/polls/category" exact element={<Category/>}></Route>
           <Route path="/polls/category/:categoryId" exact element={<PerCategory/>}></Route>
+          <Route path="/polls/update/:pollId" exact element={<UpdatePoll/>}></Route>
 
         </Routes>
       </BrowserRouter>

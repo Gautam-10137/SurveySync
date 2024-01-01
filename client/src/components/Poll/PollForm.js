@@ -33,6 +33,15 @@ const predefinedCategories = ['Technology','Science','Entertainment','Sports','P
           }    ]
       });
     };
+    const handleRemoveQuestion=(questionIndex)=>{
+      const updatedQuestion=[...Poll.questions];
+      updatedQuestion.splice(questionIndex,1);
+      setPoll({
+        ...Poll,
+        questions:updatedQuestion
+      })
+    }
+    
     const handleQuestionInput=(index,value)=>{
      const updatedQuestion=[...Poll.questions];
      updatedQuestion[index].questionText=value;
@@ -50,7 +59,15 @@ const predefinedCategories = ['Technology','Science','Entertainment','Sports','P
       questions:updatedQuestion
      })
     };
-
+    const handleRemoveChoice=(index)=>{
+      const updatedQuestion=[...Poll.questions];
+      updatedQuestion[index].choices.pop();
+    
+      setPoll({
+       ...Poll,
+       questions:updatedQuestion
+      })
+     };
     const handleChoiceInput=(indexQ,indexC,value)=>{
         const updatedQuestion=[...Poll.questions];
         updatedQuestion[indexQ].choices[indexC]=value;
@@ -128,8 +145,10 @@ const predefinedCategories = ['Technology','Science','Entertainment','Sports','P
         Poll.questions.map((question,questionIndex)=>(
           
                <div  className='question' key={questionIndex}>
-
-                <label id='que'>Question {questionIndex+1}:</label>
+                    <div id="question-label">
+                    <label id='que'>Question {questionIndex+1}:</label>
+                    <button className='add-option' onClick={(e)=>handleRemoveQuestion(questionIndex)}> - Remove que. </button>
+                    </div>
                 <input id='id1'
                   type='text'
                   value={question.questionText}                  
@@ -150,7 +169,10 @@ const predefinedCategories = ['Technology','Science','Entertainment','Sports','P
                     >
                     </input></div>
                 ))}
-                <button id='add-option' onClick={(e)=>handleAddChoice(questionIndex)}>+ Add option</button>
+                <div id="choice-button">
+                    <button className='add-option' onClick={(e)=>handleAddChoice(questionIndex)}>+ Add option</button>
+                    <button className ="add-option" onClick={(e)=>handleRemoveChoice(questionIndex)}>- Remove option</button>
+                </div>
                </div>
            
         ))
