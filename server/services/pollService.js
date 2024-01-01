@@ -92,7 +92,7 @@ const pollService={
                     await poll.save();
                     console.log("Vote saved");
                     
-                    await User.findByIdAndUpdate(userId,{$push:{participatedPolls:pollId}});
+                    await User.findByIdAndUpdate(userId, {$addToSet: { participatedPolls: pollId }});
                     return { success: true, message: 'Vote Submitted Successfully' };
                 }
                 catch(error){

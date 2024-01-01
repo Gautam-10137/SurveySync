@@ -27,11 +27,7 @@ const Login = ({setIsLoggedIn}) => {
     e.preventDefault();
     const username=formData.username;
     const email=formData.email;
-    // const emailRegex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    // if(!emailRegex.test(email)){
-    //       alert("Invalid Email");
-    //       return;
-    // }
+
     const password=formData.password;
     const response = await fetch('http://localhost:7000/api/login', {
         method: 'POST',
@@ -47,10 +43,13 @@ const Login = ({setIsLoggedIn}) => {
       // Store the token securely (e.g., in a cookie or local storage)
       localStorage.setItem('token', token);
       setIsLoggedIn(true);
-      const returnUrl=localStorage.getItem('returnUrl');
-      navigate(returnUrl);
+      // const returnUrl=localStorage.getItem('returnUrl');
+      navigate(-1);
   };
 
+  const handleSignUp=()=>{
+    navigate("/register");
+  }
   return (
     <>
     <div id='auth-logo'><Link to='/' style={linkStyle}><span id='icon'>SurveySync</span></Link></div>    
@@ -92,6 +91,10 @@ const Login = ({setIsLoggedIn}) => {
       </div>
       <button type="submit" id='register'>Login</button>
     </form>
+    </div>
+    <div className='new-to-login'>
+          <span id="new-login">New to SurveySync?</span>
+          <button className="register new-login" onClick={handleSignUp}>Sign up now</button>
     </div>
     </>
   );

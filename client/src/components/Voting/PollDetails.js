@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams,useNavigate } from 'react-router-dom'
 import VoteComponent from './VoteComponent';
 import { jwtDecode } from 'jwt-decode';
 const PollDetails = () => {
@@ -7,6 +7,7 @@ const PollDetails = () => {
     const [poll,setPoll]=useState(null);
     const [isParticipated,setIsParticipated]=useState(false);
     const [selectedChoices,setSelectedChoices]=useState({});
+    const navigate=useNavigate();
     const getUserIdFromToken = (token) => {
       try {
         // Decode the token payload
@@ -68,7 +69,9 @@ const PollDetails = () => {
                 })
               });
               if(response.ok){
-                console.log('Successful vote submission')
+                console.log('Successful vote submission');
+                navigate(-2);
+
               }
           }
           catch(error){

@@ -35,4 +35,6 @@ router.get('/:userId/profile',authenticateToken,pollController.getProfile);
 
 router.get('/category/:categoryId',authenticateToken,pollController.getCategoryPolls);
 
+router.post('/update/:pollId',authenticateToken,pollController.updatePoll);
+
 module.exports=router;

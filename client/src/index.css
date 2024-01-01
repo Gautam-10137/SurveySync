@@ -87,7 +87,7 @@ li{
 .signup{
   height: 2.3rem;
   width: 6rem;
-  background-color: blue;
+  background-color: rgb(64, 64, 209);
   border: 2px solid white;
   border-radius: 0.3rem;
  
@@ -135,7 +135,7 @@ li{
 #register{
   margin-top: 5px;
   height: 35px;
-  width: 270px;
+  width: 90%;
   background-color: blue;
   border: 2px solid blue;
   border-radius: 0.3rem;
@@ -152,6 +152,7 @@ li{
 .form{
 margin: auto;
 /* width: fit-content; */
+margin-top: 5%;
 max-width: 50%;
 }
 .form-title{
@@ -228,10 +229,14 @@ max-width: 50%;
   margin-top: 1%;
 
 }
-#add-option{
+.add-option{
   margin-bottom: 2%;
   margin-left: 2%;
-  margin-top: 2%;
+  margin-right: 1%;
+  margin-top: 1%;
+  border: 1px solid grey;
+  border-radius: 0.2rem;
+  box-shadow: #b9babb;
 }
 #id1, #id2{
  margin-left: 1%;
@@ -302,4 +307,42 @@ font-size: 17px;
 #result-id{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 15px;
+}
+
+#choice-button{
+  display: flex;
+}
+#question-label{
+  display: flex;
+  justify-content:space-between;
+}
+
+.delete-poll{
+  width: 120px;
+}
+.new-login{
+
+  height: 45px;
+  width: 30%;
+  margin-top: - 10%;
+  background-color: blue;
+  border: 2px solid blue;
+  border-radius: 0.3rem;
+  color: white;
+  font-size: large;
+  font-weight: bold;
+}
+#new-login{
+  
+  position: relative;
+  top: 15%;
+}
+.new-to-login{
+  font-size: 20px;
+
+  height: 50px;
+  margin-left: 36%;
+  margin-top: 1%;
+  width: max-content;
+
 }
