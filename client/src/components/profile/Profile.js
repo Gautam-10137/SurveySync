@@ -37,7 +37,11 @@ const Profile = () => {
       
       {Array.isArray(userDetail.createdPolls) && userDetail.createdPolls.length > 0 ? <ul>
       {userDetail.createdPolls.map((poll)=>(
-             <li key={poll._id}><Link to={`/polls/update/${poll._id}`} key={poll._id}>{poll.title}</Link></li>
+             <li key={poll._id}>Update:<Link to={`/polls/update/${poll._id}`} key={poll._id}>{poll.title}</Link>
+               Result: <Link to={`/polls/${poll._id}/results`}>{poll.title}</Link>
+
+             </li>
+
       ))}
       </ul>:(
         <p>No Polls created</p>
