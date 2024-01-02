@@ -148,6 +148,7 @@ li{
   color: rgb(70, 68, 68);  
 }
 
+
 /* css of create polls */
 .form{
 margin: auto;
@@ -345,4 +346,21 @@ font-size: 17px;
   margin-top: 1%;
   width: max-content;
 
+}
+
+/*CSS of user profile in dashboard*/
+.user-detail{
+  width: 30%;
+  height: 150px;
+  margin-left: 35%;
+  margin-top: 5%;
+  background-color: blue;
+}
+#uname, #uemail{
+  margin-left: 5%;
+}
+.polls-created, .polls-participated{
+  background-color: aquamarine;
+  display: flex;
+  width: 40%;
 }
