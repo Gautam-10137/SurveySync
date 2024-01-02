@@ -32,9 +32,7 @@ const Dashboard = () => {
         <li>
             <Link to="/polls">Public Polls</Link>
         </li>
-        <li>
-          <Link to="/polls/results">Results</Link>
-        </li>
+       
         <li>
           <Link to={`/polls/${userId}/profile`}>My Profile</Link>
         </li>
