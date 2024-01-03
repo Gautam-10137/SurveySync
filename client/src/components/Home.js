@@ -3,13 +3,13 @@ import {Link} from 'react-router-dom';
 
 import Header from './header/Header';
 import Footer from './footer/footer';
-import Logout from './auth/Logout';
+
 const linkStyle={
   textDecoration: 'none',
   color:'#4a4949'
 }
 
-const Home = ({isLoggedIn,setIsLoggedIn}) => {
+const Home = ({isLoggedIn}) => {
   useEffect(()=>{
     const returnUrl = window.location.pathname; 
     localStorage.setItem('returnUrl', returnUrl);
@@ -30,17 +30,6 @@ const Home = ({isLoggedIn,setIsLoggedIn}) => {
             <img src={require('../assets/content-image.jpg')} alt='content-image'></img>
           </div>
         </div>
-
-      <div>
-        <Link to="/dashboard">Go to Dashboard.</Link>
-      </div>
-      {!isLoggedIn?
-      <div>
-        <Link to="/login">Login</Link>
-        <Link to="/register">Register</Link>
-        <Logout setIsLoggedIn={setIsLoggedIn}/>
-      </div>
-       :<h4>Logged In!</h4>} 
       </div>
       <Footer/>
     </div>
