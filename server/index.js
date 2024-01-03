@@ -9,7 +9,7 @@ const password=process.env.PASSWORD;
 const port=process.env.PORT;
 const app=express();
 
-const userID=process.env.USERID;
+const userID = process.env.USERID;
 mongoose.connect(`mongodb+srv://${userID}:${password}@cluster0.vmvwcul.mongodb.net/?retryWrites=true&w=majority`,{
     useNewUrlParser:true,
     useUnifiedTopology:true
@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 app.use(cors({
     origin: 'http://localhost:3000',  
-    methods: ['GET', 'POST','DELETE'],
+    methods: ['GET', 'POST','DELETE','UPDATE'],
   }));
 app.use('/polls',pollRoutes);
 app.use('/api',apiRoutes);

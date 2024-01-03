@@ -148,6 +148,7 @@ li{
   color: rgb(70, 68, 68);  
 }
 
+
 /* css of create polls */
 .form{
 margin: auto;
@@ -345,4 +346,84 @@ font-size: 17px;
   margin-top: 1%;
   width: max-content;
 
+}
+
+/*CSS of user profile in dashboard*/
+.user-detail{
+  width: 30%;
+  height: 200px;
+  margin-left: 35%;
+  margin-top: 5%;
+  background-color: #957777;
+  margin-bottom: 20px;
+  border-top: 1px solid rgb(218, 217, 217);
+  border-right:1px solid rgb(227, 225, 225) ;
+  border-bottom: 1px solid rgb(218, 215, 215);
+  border-left:1px solid rgb(223, 222, 222) ;
+  text-align: center;
+  border-radius: 0.8rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+#uname, #uemail{ 
+  color: white;
+}
+
+#profile-image{
+  width: 100px;
+  margin-top: 10px;
+}
+
+.polls-profile{
+  display: flex; 
+  height: 200px; 
+  
+}
+.polls-participated, .polls-created{
+  background-color: rgb(206, 205, 205);
+  width: 50%;
+  height: fit-content;
+  margin-left: 20px;
+  color: white;
+  border-top: 1px solid rgb(218, 217, 217);
+  border-right:1px solid rgb(227, 225, 225) ;
+  border-bottom: 1px solid rgb(218, 215, 215);
+  border-left:1px solid rgb(223, 222, 222) ;
+  text-align: center;
+  border-radius: 0.8rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+#create-poll-card, #participated-poll-card{
+  background-color: #957777;
+  width: 80%;
+  height: 100px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+  padding-left: 15px;
+
+  border-top: 1px solid rgb(218, 217, 217);
+  border-right:1px solid rgb(227, 225, 225) ;
+  border-bottom: 1px solid rgb(218, 215, 215);
+  border-left:1px solid rgb(223, 222, 222) ;
+  /* text-align: center; */
+  border-radius: 0.8rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+  
+}
+#create-poll-card>button{
+  background-color: #957777;
+  margin-inline: 20px;
+}
+
+#create-poll-container, #participated-poll-container{
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, 1fr);
+  height: max-content;
+  margin-top: 10px;
+}
+#logout{
+  margin-right: 5%;
+  right: 0;
+  position: absolute;
 }

@@ -21,7 +21,7 @@ const Logout = ({setIsLoggedIn}) => {
        }
     }
   return (
-    <button onClick={handleLogout}>
+    <button  id="logout" onClick={handleLogout}>
       Logout
     </button>
   )
