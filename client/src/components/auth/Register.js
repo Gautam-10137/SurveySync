@@ -40,7 +40,7 @@ const Register = () => {
       navigate('/');
   };
   return (
-   <>   <div id='auth-logo'><Link to='/' style={linkStyle}><span id='icon'>SurveySync</span></Link></div>    
+   <>   <div id='auth-logo'><Link to='/' style={linkStyle}><img id="logo-img" src={require('../../assets/SurveySync.png')}></img></Link></div>    
       <div className='form-container'>    
     <form onSubmit={handleFormSubmit}>
     <div>
@@ -83,8 +83,8 @@ const Register = () => {
     <button type="submit" id='register'>Register</button>
   </form>
   </div>
-  <h6 id='para'>Sign up
-By signing up you accept our terms of use and policies.</h6>
+  <h5 id='para'>Sign up,
+By signing up you accept our terms of use and policies.</h5>
   </>
   )
 }

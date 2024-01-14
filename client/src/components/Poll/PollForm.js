@@ -8,7 +8,7 @@ const linkStyle={
 const PollForm = ({onSubmit}) => {
   // Example of predefined categories
 const predefinedCategories = ['Technology','Science','Entertainment','Sports','Politics','Food','Travel','Health','Education','Business'
-,'Fashion','Art','Music','Movies','Books','Fitness','Gaming','Home & Garden','Pets','Hobbies', 'Finance'];
+,'Fashion','Art','Music','Movies','Books','Fitness','Gaming','Home&Garden','Pets','Hobbies', 'Finance'];
 
     const [Poll,setPoll]=useState({
         title:'',
@@ -79,6 +79,7 @@ const predefinedCategories = ['Technology','Science','Entertainment','Sports','P
     const handleSubmit=()=>{
       console.log(Poll);
       onSubmit(Poll);
+      
     }
   
 

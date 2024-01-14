@@ -29,7 +29,7 @@ const App = () => {
           <Route path="/register" exact element={<Register/>}/>
           <Route path="/create-poll" exact element={<PrivateRoute isLoggedIn={isLoggedIn} element={<Create/>}/>}/>
           <Route path="/dashboard" exact element={<Dashboard />}/>
-          <Route path="/polls" exact element={<Category/>}/>
+          <Route path="/polls" exact element={<PrivateRoute isLoggedIn={isLoggedIn} element={<Category/>}/>}/>
           <Route path="/polls/results" exact  element={<PrivateRoute isLoggedIn={isLoggedIn} element={<Result/>}/>}/>
           <Route path="/polls/:pollId/results" exact element={<PollResult/>}></Route>
           <Route path="/polls/:userId/profile" exact element={<PrivateRoute isLoggedIn={isLoggedIn} element={<Profile setIsLoggedIn={setIsLoggedIn}/>}/>}></Route>

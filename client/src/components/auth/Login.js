@@ -52,7 +52,7 @@ const Login = ({setIsLoggedIn}) => {
   }
   return (
     <>
-    <div id='auth-logo'><Link to='/' style={linkStyle}><span id='icon'>SurveySync</span></Link></div>    
+    <div id='auth-logo'><Link to='/' style={linkStyle}><img id="logo-img" src={require('../../assets/SurveySync.png')}></img></Link></div>    
     <div className='form-container'>
     <form onSubmit={handleFormSubmit}>
       <div>
@@ -93,7 +93,7 @@ const Login = ({setIsLoggedIn}) => {
     </form>
     </div>
     <div className='new-to-login'>
-          <span id="new-login">New to SurveySync?</span>
+          <span id="new-login">New to <strong>SurveySync?</strong></span>
           <button className="register new-login" onClick={handleSignUp}>Sign up now</button>
     </div>
     </>

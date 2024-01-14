@@ -24,14 +24,14 @@ const Header = ({isLoggedIn}) => {
           return null;
         }
       };  
-      getUserIdFromToken(token);
+      if(token){getUserIdFromToken(token)};
     },[]);
   return (
         <header>
             <nav className='header'>
                 <div className='logo'>
                     {/* inline css */}
-                    <Link to='/' style={linkStyle}>SurveySync</Link>
+                    <Link to='/' style={linkStyle}><img id="logo-img" src={require('../../assets/SurveySync.png')}></img></Link>
                 </div>
                 <div className='nav-links'>
                     <ul id="header-ul">
@@ -51,8 +51,8 @@ const Header = ({isLoggedIn}) => {
                 </div>
                 {isLoggedIn?<div className='profile-section'>
                     <div >
-                        Hello,{username}
-                    </div>
+                        Hii,{username}
+                    </div> 
                     <Link to={`/polls/${userId}/profile`}><FontAwesomeIcon icon={faUser} style={{ fontSize: '2rem' }}/></Link>
 
                 </div>:<div className='profile-section'>

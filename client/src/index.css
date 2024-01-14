@@ -1,6 +1,6 @@
 body {
   max-width: 95%;
-  height: 1000px;
+  
   /* auto means it will leave equal space from left and right */
   margin: 0 auto;
   float: none;
@@ -35,10 +35,11 @@ code {
   width: 45%;
 }
 .profile-section{
-  width: 14%; 
+  width:12%; 
  display: flex;
  align-items: center;
-
+ 
+ text-align: end;
  justify-content: space-between;
 
 }
@@ -105,18 +106,18 @@ li{
 .form-container{
   width: 300px;
   margin-left: 35%;
-  margin-top: 5%;
-  background-color: aqua;
+  margin-top: 2%;
+  background-color: rgb(153, 251, 251);
   padding-left:20px ;
   padding-top: 20px;
   padding-bottom: 20px;
 }
 #auth-logo
 {
-  background-color: yellow;
-  height: 40px;
-  width: fit-content;
-  margin-left: 42%;
+ 
+  
+
+  margin-left: 39%;
   margin-top: 10%;
   
 }
@@ -145,7 +146,9 @@ li{
 }
 #para{
   margin-left: 35%;
-  color: rgb(70, 68, 68);  
+  color: rgb(70, 68, 68);
+ 
+  width: 350px;  
 }
 
 
@@ -426,4 +429,64 @@ font-size: 17px;
   margin-right: 5%;
   right: 0;
   position: absolute;
+}
+
+/* category */
+.category-card{
+  border: 2px solid rgb(142, 140, 140);
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  border-top: 1px solid rgb(218, 217, 217);
+  border-right:1px solid rgb(227, 225, 225) ;
+  border-bottom: 1px solid rgb(218, 215, 215);
+  border-left:1px solid rgb(223, 222, 222) ;
+
+  border-radius: 0.8rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+}
+
+.category-image{
+  margin-top: 1%;
+  width: 190px;
+  height: 170px;
+  border-radius: 0.5rem;
+
+}
+
+#categories{
+  display: flex;
+  justify-content: space-between;
+}
+
+#category-label{
+  text-align: center;
+  font-size: 30px;
+  color: #5b5959;
+}
+
+/* footer */
+.footer{
+  background-color: rgb(215, 215, 215);
+  border-top: 2px solid rgb(127, 127, 127);
+  position: fixed;
+  width: 96%;
+  
+  bottom: 1px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  height: 3rem;
+  
+}
+.footerContent{
+  font-size: 18px;
+ 
+  width: fit-content;
+}
+
+#logo-img{
+  width: 200px;
+  
 }
